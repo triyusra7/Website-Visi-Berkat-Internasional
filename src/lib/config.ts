@@ -2,9 +2,13 @@ export const SITE_NAME = "PT. Visi Berkat Internasional";
 export const SITE_URL = "https://visiberkatinternasional.com";
 
 export const WHATSAPP_NUMBER = "6281806046098";
-export const CONTACT_EMAIL = "ptvisiberkatinternasional@gmail.com";
+export const CONTACT_EMAIL = "office@ptvisiberkatinternasional.net";
 export const CONTACT_ADDRESS =
   "Gunung Batu No 203, Apartment Gateway Pasteur Blok Diamond BS 10, Kelurahan Sukaraja, Kecamatan Cicendo, Kota Bandung, Jawa Barat";
+/** Koordinat kantor — sesuaikan jika perlu lebih presisi */
+export const CONTACT_LAT = -6.1855;
+export const CONTACT_LNG = 106.9388;
+
 
 export function waLink(message?: string): string {
   const base = `https://wa.me/${WHATSAPP_NUMBER}`;

@@ -290,18 +290,18 @@ export const products: Product[] = [
     featured: false,
   },
   {
-    sku_id: "sarikaya-soes-coklat-cream-soes",
-    slug: "soes-coklat-cream-soes",
-    product_name: "Soes Coklat (Cream Soes)",
+    sku_id: "sarikaya-soes-strawberry",
+    slug: "soes-strawberry",
+    product_name: "Soes Strawberry",
     brand: "Sarikaya",
     packaging_type: "Bulk",
     category: "Choux/Soes",
-    flavor: "Chocolate",
+    flavor: "Strawberry",
     net_weight: "2 Kg",
     carton_size_cm: "30 x 22 x 20",
-    shelf_life: "8 Months",
+    shelf_life: "10 Months",
     description: null,
-    image: `${IMG}/sarikaya-20-soes-coklat-cream.png`,
+    image: `${IMG}/sarikaya-20-soes-strawberry.png`,
     featured: false,
   },
   {
@@ -667,7 +667,7 @@ export const products: Product[] = [
   },
   {
     sku_id: "springlee-samosa-ayam-manis-pedas",
-    slug: "samosa-ayam-manis-pedas",
+    slug: "sweet-spicy-chicken-samosa",
     product_name: "Samosa Ayam Manis Pedas (Sweet & Spicy Chicken Samosa)",
     brand: "Springlee",
     packaging_type: "Retail",
@@ -837,6 +837,22 @@ export const products: Product[] = [
     featured: true,
   },
 ];
+
+// Slugs are the URL key for the product detail modal (item=<slug>), so a
+// duplicate slug would make getProductBySlug resolve to the wrong product.
+// Guard against it at module load in development.
+if (process.env.NODE_ENV !== "production") {
+  const seen = new Map<string, string>();
+  for (const p of products) {
+    const existing = seen.get(p.slug);
+    if (existing) {
+      throw new Error(
+        `Duplicate product slug "${p.slug}" on "${p.sku_id}" and "${existing}". Slugs must be unique.`,
+      );
+    }
+    seen.set(p.slug, p.sku_id);
+  }
+}
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
