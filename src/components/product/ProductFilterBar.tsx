@@ -3,6 +3,8 @@
 import { motion } from "motion/react";
 import { brands } from "@/data/brands";
 import { categories } from "@/data/products";
+import { useTranslation } from "@/context/LanguageContext";
+import { translateCategory } from "@/lib/translations";
 import { cn } from "@/lib/utils";
 
 export type Filters = {
@@ -52,11 +54,13 @@ function Pill({
 
 function FilterGroup({
   label,
+  allLabel,
   options,
   active,
   onSelect,
 }: {
   label: string;
+  allLabel: string;
   options: { value: string; label: string }[];
   active: string | null;
   onSelect: (value: string | null) => void;
@@ -70,7 +74,7 @@ function FilterGroup({
       </span>
       <div className="flex flex-wrap gap-2" role="group" aria-label={label}>
         <Pill active={active === null} onClick={() => onSelect(null)} layoutId={layoutId}>
-          All
+          {allLabel}
         </Pill>
         {options.map((opt) => (
           <Pill
@@ -88,29 +92,35 @@ function FilterGroup({
 }
 
 export function ProductFilterBar({ filters, onChange }: Props) {
+  const { t, language } = useTranslation();
+
   return (
     <div className="flex flex-col gap-5 rounded-xl border border-border bg-white p-5">
       <FilterGroup
-        label="Brand"
+        label={t("filterBrand")}
+        allLabel={t("filterAllBrands")}
         options={brands.map((b) => ({ value: b.id.toLowerCase(), label: b.name }))}
         active={filters.brand}
         onSelect={(brand) => onChange({ ...filters, brand })}
       />
       <FilterGroup
-        label="Packaging Type"
+        label={t("filterPackaging")}
+        allLabel={t("filterAllPackaging")}
         options={[
-          { value: "bulk", label: "Bulk/Wholesale" },
-          { value: "retail", label: "Retail" },
+          { value: "bulk", label: t("packaging_bulk") },
+          { value: "retail", label: t("packaging_retail") },
         ]}
         active={filters.packaging}
         onSelect={(packaging) => onChange({ ...filters, packaging })}
       />
       <FilterGroup
-        label="Category"
-        options={categories.map((c) => ({ value: c.toLowerCase(), label: c }))}
+        label={t("filterCategory")}
+        allLabel={t("filterAllCategories")}
+        options={categories.map((c) => ({ value: c.toLowerCase(), label: translateCategory(c, language) }))}
         active={filters.category}
         onSelect={(category) => onChange({ ...filters, category })}
       />
     </div>
   );
 }
+

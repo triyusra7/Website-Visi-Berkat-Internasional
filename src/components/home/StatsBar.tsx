@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "motion/react";
 import { products } from "@/data/products";
+import { useTranslation } from "@/context/LanguageContext";
 
 const container: Variants = {
   hidden: {},
@@ -19,12 +20,13 @@ const item: Variants = {
 };
 
 export function StatsBar() {
+  const { t } = useTranslation();
   const productCount = products.length;
 
   const stats = [
-    { value: `${productCount}+`, label: "Products", tone: "bg-vbi-navy-dark" },
-    { value: "100%", label: "High Quality", tone: "bg-vbi-blue" },
-    { value: "100%", label: "Original", tone: "bg-vbi-red" },
+    { value: `${productCount}+`, label: t("statProducts"), tone: "bg-vbi-navy-dark" },
+    { value: "100%", label: t("statQuality"), tone: "bg-vbi-blue" },
+    { value: "100%", label: t("statOriginal"), tone: "bg-vbi-red" },
   ];
 
   return (
@@ -50,3 +52,4 @@ export function StatsBar() {
     </motion.section>
   );
 }
+

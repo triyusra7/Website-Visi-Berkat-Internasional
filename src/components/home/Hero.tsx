@@ -4,6 +4,7 @@ import { motion, type Variants } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
+import { useTranslation } from "@/context/LanguageContext";
 
 const container: Variants = {
   hidden: {},
@@ -16,6 +17,8 @@ const item: Variants = {
 };
 
 export function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section className="relative overflow-hidden bg-vbi-navy-dark">
       <motion.div
@@ -46,19 +49,16 @@ export function Hero() {
             variants={item}
             className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-vbi-red"
           >
-            Authentic Indonesian Recipes
+            {t("heroSub")}
           </motion.p>
           <motion.h1
             variants={item}
             className="font-heading text-4xl font-bold leading-tight text-white md:text-6xl"
           >
-            We are not just exporting snacks, we are sharing Indonesia&apos;s culture with the
-            world.
+            {t("heroTitle")}
           </motion.h1>
           <motion.p variants={item} className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
-            PT. Visi Berkat Internasional crafts and exports authentic Indonesian snacks — from
-            crispy spring rolls to traditional favorites — meeting international quality
-            standards across 4 distinct brands.
+            {t("heroDesc")}
           </motion.p>
           <motion.div variants={item} className="mt-8 flex flex-wrap gap-4">
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.96 }}>
@@ -66,14 +66,14 @@ export function Hero() {
                 href="/products"
                 className="inline-flex items-center justify-center rounded-md bg-vbi-red px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-sm transition-colors hover:bg-vbi-red/90 hover:shadow-md"
               >
-                View Catalog
+                {t("btnViewCatalog")}
               </Link>
             </motion.div>
             <WhatsAppButton
-              message="Hi, I'd like to know more about VBI's export products."
+              message={t("waInquiryHero")}
               variant="outline"
             >
-              Chat on WhatsApp
+              {t("btnChatWa")}
             </WhatsAppButton>
           </motion.div>
         </div>
@@ -81,3 +81,4 @@ export function Hero() {
     </section>
   );
 }
+

@@ -1,9 +1,26 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { RyoriWordmark } from "@/components/brand/RyoriWordmark";
+import { useTranslation } from "@/context/LanguageContext";
 import type { BrandInfo } from "@/types/product";
 
 export function BrandCard({ brand }: { brand: BrandInfo }) {
+  const { t, language } = useTranslation();
+
+  const descTranslated = t(`brand_${brand.id}_desc` as any) || brand.description;
+  
+  const positionTranslated = brand.position.toLowerCase() === "retail" 
+    ? t("packaging_retail") 
+    : (language === "id" ? "Grosir/Kartonan" : language === "zh" ? "散装/批发" : "Bulk/Wholesale");
+
+  const viewText = language === "id" 
+    ? `Lihat Produk ${brand.name}` 
+    : language === "zh" 
+      ? `查看 ${brand.name} 产品` 
+      : `View ${brand.name} Products`;
+
   return (
     <Link
       href={`/products?brand=${brand.id.toLowerCase()}`}
@@ -20,13 +37,14 @@ export function BrandCard({ brand }: { brand: BrandInfo }) {
         {brand.name}
       </h3>
       <span className="mt-1 mb-3 inline-block rounded-full bg-secondary px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-vbi-navy/70">
-        {brand.position}
+        {positionTranslated}
       </span>
-      <p className="flex-1 text-sm text-muted-foreground">{brand.description}</p>
+      <p className="flex-1 text-sm text-muted-foreground">{descTranslated}</p>
       <span className="mt-4 flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-vbi-red transition-colors group-hover:text-vbi-navy">
-        View {brand.name} Products
+        {viewText}
         <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
       </span>
     </Link>
   );
 }
+

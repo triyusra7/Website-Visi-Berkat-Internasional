@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Oswald } from "next/font/google";
+import { cookies } from "next/headers";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { LanguageProvider } from "@/context/LanguageContext";
+import { Locale } from "@/lib/translations";
 import { SITE_URL } from "@/lib/config";
 import "./globals.css";
 
@@ -35,19 +38,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const lang = (cookieStore.get("lang")?.value || "en") as Locale;
+
   return (
-    <html lang="en" className={`${inter.variable} ${oswald.variable} h-full antialiased`}>
+    <html lang={lang} className={`${inter.variable} ${oswald.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
+        <LanguageProvider initialLang={lang}>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingWhatsApp />
+        </LanguageProvider>
       </body>
     </html>
   );
 }
+

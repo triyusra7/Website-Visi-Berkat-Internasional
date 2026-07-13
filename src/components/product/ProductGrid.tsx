@@ -30,7 +30,7 @@ export function ProductGrid({
       variants={container}
     >
       {products.map((product) => (
-        <motion.div key={product.sku_id} variants={item}>
+        <motion.div key={product.sku_id} variants={item} className="h-full">
           <ProductCard product={product} preserveQuery={preserveQuery} />
         </motion.div>
       ))}

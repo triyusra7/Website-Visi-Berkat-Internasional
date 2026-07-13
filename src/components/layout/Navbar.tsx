@@ -6,18 +6,21 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { cn } from "@/lib/utils";
-
-const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/brands", label: "Our Brands" },
-  { href: "/products", label: "Products" },
-  { href: "/contact", label: "Contact" },
-];
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { useTranslation } from "@/context/LanguageContext";
 
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
+
+  const navLinks = [
+    { href: "/", label: t("navHome") },
+    { href: "/about", label: t("navAbout") },
+    { href: "/brands", label: t("navBrands") },
+    { href: "/products", label: t("navProducts") },
+    { href: "/contact", label: t("navContact") },
+  ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur">
@@ -32,7 +35,7 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => {
+          {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
@@ -55,9 +58,10 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="hidden md:block">
-          <WhatsAppButton message="Hi, I'm interested in learning more about VBI's products." className="px-4 py-2.5 text-xs">
-            Contact Us
+        <div className="hidden md:flex items-center gap-4">
+          <LanguageSwitcher />
+          <WhatsAppButton message={t("waInquiryNavbar")} className="px-4 py-2.5 text-xs">
+            {t("btnContactUs")}
           </WhatsAppButton>
         </div>
 
@@ -107,7 +111,7 @@ export function Navbar() {
             className="overflow-hidden border-t border-border bg-white md:hidden"
           >
             <ul className="flex flex-col px-4 py-2">
-              {NAV_LINKS.map((link, i) => (
+              {navLinks.map((link, i) => (
                 <motion.li
                   key={link.href}
                   className="border-b border-border last:border-none"
@@ -128,12 +132,15 @@ export function Navbar() {
                 </motion.li>
               ))}
             </ul>
-            <div className="px-4 pb-4">
+            <div className="flex flex-col gap-4 px-4 pb-4">
+              <div className="flex justify-end">
+                <LanguageSwitcher />
+              </div>
               <WhatsAppButton
-                message="Hi, I'm interested in learning more about VBI's products."
+                message={t("waInquiryNavbar")}
                 className="w-full"
               >
-                Contact Us
+                {t("btnContactUs")}
               </WhatsAppButton>
             </div>
           </motion.nav>
@@ -142,3 +149,4 @@ export function Navbar() {
     </header>
   );
 }
+

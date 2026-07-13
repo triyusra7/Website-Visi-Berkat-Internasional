@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/shared/Reveal";
+import { useTranslation } from "@/context/LanguageContext";
 
 export function AboutSnippet() {
+  const { t } = useTranslation();
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
@@ -17,22 +22,19 @@ export function AboutSnippet() {
         </Reveal>
         <Reveal direction="right" delay={0.1}>
           <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-vbi-red">
-            About Us
+            {t("aboutSub")}
           </p>
           <h2 className="font-heading text-3xl font-bold text-vbi-navy md:text-4xl">
-            An Indonesian snack export company, built on authenticity.
+            {t("aboutSnippetTitle")}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            PT. Visi Berkat Internasional is an Indonesian snack export company dedicated to
-            introducing the rich and authentic flavors of Indonesia to the global market. We
-            specialize in crispy spring rolls and a wide range of traditional Indonesian snacks,
-            crafted to meet international quality and food safety standards.
+            {t("aboutSnippetDesc")}
           </p>
           <Link
             href="/about"
             className="group mt-6 inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-vbi-navy transition-colors hover:text-vbi-red"
           >
-            Read More
+            {t("btnReadMore")}
             <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
           </Link>
         </Reveal>
@@ -40,3 +42,4 @@ export function AboutSnippet() {
     </section>
   );
 }
+

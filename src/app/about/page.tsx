@@ -1,34 +1,20 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { Reveal, RevealGroup, RevealItem } from "@/components/shared/Reveal";
+import { getTranslations, Locale } from "@/lib/translations";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description:
-    "PT. Visi Berkat Internasional is an Indonesian snack export company dedicated to introducing authentic Indonesian flavors to the global market.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const cookieStore = await cookies();
+  const lang = (cookieStore.get("lang")?.value || "en") as Locale;
+  const dict = getTranslations(lang);
 
-const VISION_POINTS = [
-  "Authentic Indonesian taste",
-  "Consistent product quality",
-  "Compliance with international food standards",
-  "Reliable and long-term international partnerships",
-];
-
-const MISSION_POINTS = [
-  "To introduce Indonesian culinary heritage to global consumers",
-  "To maintain authentic flavors while meeting international quality standards",
-  "To build strong partnerships with global distributors and importers",
-  "To continuously innovate Indonesian snack products for the international market",
-];
-
-const SPECIALIZATION_POINTS = [
-  "Crispy Spring Rolls (Traditional & Modern Variants)",
-  "Authentic Indonesian Traditional Snacks",
-  "Custom Snack Products for International Markets (OEM / Private Label)",
-  "Export-ready snack solutions tailored to market demand",
-];
+  return {
+    title: dict.navAbout,
+    description: dict.aboutSnippetDesc,
+  };
+}
 
 function CheckItem({ children }: { children: React.ReactNode }) {
   return (
@@ -55,16 +41,41 @@ function CheckList({ points }: { points: string[] }) {
   );
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const cookieStore = await cookies();
+  const lang = (cookieStore.get("lang")?.value || "en") as Locale;
+  const dict = getTranslations(lang);
+
+  const visionPoints = [
+    dict.aboutVisionPoint1,
+    dict.aboutVisionPoint2,
+    dict.aboutVisionPoint3,
+    dict.aboutVisionPoint4,
+  ];
+
+  const missionPoints = [
+    dict.aboutMissionPoint1,
+    dict.aboutMissionPoint2,
+    dict.aboutMissionPoint3,
+    dict.aboutMissionPoint4,
+  ];
+
+  const specializationPoints = [
+    dict.aboutSpecializationPoint1,
+    dict.aboutSpecializationPoint2,
+    dict.aboutSpecializationPoint3,
+    dict.aboutSpecializationPoint4,
+  ];
+
   return (
     <>
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
         <Reveal>
           <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-vbi-red">
-            About Us
+            {dict.aboutSub}
           </p>
           <h1 className="font-heading max-w-3xl text-3xl font-bold text-vbi-navy md:text-5xl">
-            About PT. Visi Berkat Internasional
+            {dict.aboutPageTitle}
           </h1>
         </Reveal>
 
@@ -80,16 +91,10 @@ export default function AboutPage() {
           </Reveal>
           <Reveal direction="right" delay={0.15} className="space-y-4 text-base leading-relaxed text-muted-foreground">
             <p>
-              PT. Visi Berkat Internasional is an Indonesian snack export company dedicated to
-              introducing the rich and authentic flavors of Indonesia to the global market. We
-              specialize in crispy spring rolls and a wide range of traditional Indonesian snacks,
-              crafted to meet international quality and food safety standards.
+              {dict.aboutSnippetDesc}
             </p>
             <p>
-              Inspired by Indonesia&apos;s diverse culinary heritage, we transform time-honored
-              recipes into modern, export-ready snack products without losing their original
-              taste and cultural essence. Every product we deliver reflects Indonesia&apos;s
-              warmth, craftsmanship, and passion for food.
+              {dict.aboutPageDescPara2}
             </p>
           </Reveal>
         </div>
@@ -100,49 +105,51 @@ export default function AboutPage() {
           <div className="mb-14">
             <Reveal>
               <h2 className="font-heading mb-4 text-2xl font-bold text-vbi-navy md:text-3xl">
-                Our Vision
+                {dict.aboutVision}
               </h2>
               <p className="mb-5 max-w-2xl text-sm text-muted-foreground md:text-base">
-                To become a trusted global exporter of Indonesian snacks, recognized for:
+                {dict.aboutVisionDesc}
               </p>
             </Reveal>
-            <CheckList points={VISION_POINTS} />
+            <CheckList points={visionPoints} />
           </div>
 
           <div className="mb-14">
             <Reveal>
               <h2 className="font-heading mb-5 text-2xl font-bold text-vbi-navy md:text-3xl">
-                Our Mission
+                {dict.aboutMission}
               </h2>
             </Reveal>
-            <CheckList points={MISSION_POINTS} />
+            <CheckList points={missionPoints} />
           </div>
 
           <div>
             <Reveal>
               <h2 className="font-heading mb-4 text-2xl font-bold text-vbi-navy md:text-3xl">
-                Our Specialization
+                {dict.aboutSpecialization}
               </h2>
               <p className="mb-5 max-w-2xl text-sm text-muted-foreground md:text-base">
-                We focus on producing and exporting premium Indonesian snacks, including:
+                {dict.aboutSpecializationDesc}
               </p>
             </Reveal>
-            <CheckList points={SPECIALIZATION_POINTS} />
+            <CheckList points={specializationPoints} />
           </div>
         </div>
       </section>
 
       <Reveal className="mx-auto max-w-3xl px-4 py-16 text-center md:px-8 md:py-24">
         <h2 className="font-heading text-2xl font-bold text-vbi-navy md:text-3xl">
-          Want to know more about working with us?
+          {dict.aboutCTA}
         </h2>
         <Link
           href="/contact"
           className="tap-scale mt-6 inline-flex items-center justify-center rounded-md bg-vbi-navy px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-sm transition-colors hover:bg-vbi-navy/90 hover:shadow-md"
         >
-          Get In Touch
+          {dict.btnGetInTouch}
         </Link>
       </Reveal>
     </>
   );
 }
+
+

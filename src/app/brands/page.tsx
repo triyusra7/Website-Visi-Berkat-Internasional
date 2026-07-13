@@ -1,29 +1,40 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { BrandCard } from "@/components/brand/BrandCard";
 import { Reveal, RevealGroup, RevealItem } from "@/components/shared/Reveal";
 import { brands } from "@/data/brands";
+import { getTranslations, Locale } from "@/lib/translations";
 
-export const metadata: Metadata = {
-  title: "Our Brands",
-  description:
-    "From bulk export snacks to retail-ready products, VBI's four brands — Sarikaya, Springlee, Ryori, and Sweetfulli — represent the diversity, quality, and authenticity of Indonesian snacks.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const cookieStore = await cookies();
+  const lang = (cookieStore.get("lang")?.value || "en") as Locale;
+  const dict = getTranslations(lang);
 
-export default function BrandsPage() {
+  return {
+    title: dict.navBrands,
+    description: dict.brandsPageDesc,
+  };
+}
+
+export default async function BrandsPage() {
+  const cookieStore = await cookies();
+  const lang = (cookieStore.get("lang")?.value || "en") as Locale;
+  const dict = getTranslations(lang);
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal className="mx-auto mb-14 max-w-2xl text-center">
         <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-vbi-red">
-          Our Brands
+          {dict.brandsSub}
         </p>
         <h1 className="font-heading text-3xl font-bold text-vbi-navy md:text-5xl">
-          Four brands, every kind of buyer.
+          {dict.brandsPageTitle}
         </h1>
         <p className="mt-4 text-base text-muted-foreground">
-          From bulk export snacks to retail-ready products, our brands represent the diversity,
-          quality, and authenticity of Indonesian snacks.
+          {dict.brandsPageDesc}
         </p>
       </Reveal>
+
 
       <RevealGroup className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {brands.map((brand) => (
@@ -35,3 +46,4 @@ export default function BrandsPage() {
     </section>
   );
 }
+

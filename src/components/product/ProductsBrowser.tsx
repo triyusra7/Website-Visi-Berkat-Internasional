@@ -6,11 +6,13 @@ import { EmptyState } from "@/components/product/EmptyState";
 import { ProductDetailModal } from "@/components/product/ProductDetailModal";
 import { ProductFilterBar, type Filters } from "@/components/product/ProductFilterBar";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { useTranslation } from "@/context/LanguageContext";
 import { getProductBySlug, products } from "@/data/products";
 
 export function ProductsBrowser() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { t } = useTranslation();
 
   const filters: Filters = {
     brand: searchParams.get("brand"),
@@ -58,6 +60,10 @@ export function ProductsBrowser() {
     updateUrl(filters, null);
   }
 
+  const showingText = t("showingProducts")
+    .replace("{count}", String(filtered.length))
+    .replace("{total}", String(products.length));
+
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
       <aside>
@@ -66,7 +72,7 @@ export function ProductsBrowser() {
 
       <div>
         <p className="mb-4 text-sm text-muted-foreground">
-          Showing {filtered.length} of {products.length} products
+          {showingText}
         </p>
         {filtered.length > 0 ? (
           <ProductGrid products={filtered} preserveQuery={filterQuery.toString()} />
@@ -79,3 +85,4 @@ export function ProductsBrowser() {
     </div>
   );
 }
+

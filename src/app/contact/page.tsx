@@ -1,24 +1,35 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { MapEmbed } from "@/components/shared/MapEmbed";
 import { Reveal } from "@/components/shared/Reveal";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { CONTACT_ADDRESS, CONTACT_EMAIL, mailtoLink, WHATSAPP_NUMBER } from "@/lib/config";
+import { getTranslations, Locale } from "@/lib/translations";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Get in touch with PT. Visi Berkat Internasional via WhatsApp, email, or visit us in Bandung, Indonesia.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const cookieStore = await cookies();
+  const lang = (cookieStore.get("lang")?.value || "en") as Locale;
+  const dict = getTranslations(lang);
 
-export default function ContactPage() {
+  return {
+    title: dict.navContact,
+    description: dict.contactTitle,
+  };
+}
+
+export default async function ContactPage() {
+  const cookieStore = await cookies();
+  const lang = (cookieStore.get("lang")?.value || "en") as Locale;
+  const dict = getTranslations(lang);
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal className="mx-auto mb-14 max-w-2xl text-center">
         <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-vbi-red">
-          Contact
+          {dict.navContact}
         </p>
         <h1 className="font-heading text-3xl font-bold text-vbi-navy md:text-5xl">
-          Let&apos;s bring the taste of Indonesia to the world — together.
+          {dict.contactTitle}
         </h1>
       </Reveal>
 
@@ -33,7 +44,7 @@ export default function ContactPage() {
                   </svg>
                 </span>
                 <div>
-                  <p className="font-semibold text-vbi-navy">WhatsApp</p>
+                  <p className="font-semibold text-vbi-navy">{dict.contactWa}</p>
                   <a href={`https://wa.me/${WHATSAPP_NUMBER}`} className="text-muted-foreground hover:text-vbi-navy">
                     +62 818-0604-6098
                   </a>
@@ -52,7 +63,7 @@ export default function ContactPage() {
                   </svg>
                 </span>
                 <div>
-                  <p className="font-semibold text-vbi-navy">Email</p>
+                  <p className="font-semibold text-vbi-navy">{dict.contactEmail}</p>
                   <a href={mailtoLink()} className="text-muted-foreground hover:text-vbi-navy">
                     {CONTACT_EMAIL}
                   </a>
@@ -70,17 +81,18 @@ export default function ContactPage() {
                   </svg>
                 </span>
                 <div>
-                  <p className="font-semibold text-vbi-navy">Address</p>
+                  <p className="font-semibold text-vbi-navy">{dict.contactAddress}</p>
                   <p className="text-muted-foreground">{CONTACT_ADDRESS}</p>
                 </div>
               </li>
             </ul>
           </div>
 
-          <WhatsAppButton message="Hi, I'd like to get in touch with VBI." className="w-full py-4 text-base">
-            Chat via WhatsApp
+          <WhatsAppButton message={dict.waInquiryContact} className="w-full py-4 text-base">
+            {dict.btnChatWaContact}
           </WhatsAppButton>
         </Reveal>
+
 
         <Reveal direction="right" delay={0.1}>
           <MapEmbed />
@@ -89,3 +101,4 @@ export default function ContactPage() {
     </section>
   );
 }
+
