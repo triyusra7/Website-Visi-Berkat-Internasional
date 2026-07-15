@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -25,13 +26,15 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
-        <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="font-heading text-xl font-bold uppercase tracking-wide text-vbi-navy">
-            Visi Berkat
-          </span>
-          <span className="hidden text-xs font-medium uppercase tracking-widest text-vbi-red sm:inline">
-            Internasional
-          </span>
+        <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
+          <Image
+            src="/images/logo.png"
+            alt="PT. Visi Berkat Internasional"
+            width={48}
+            height={48}
+            className="h-11 w-auto object-contain"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

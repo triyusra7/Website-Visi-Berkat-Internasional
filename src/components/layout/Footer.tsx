@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslation } from "@/context/LanguageContext";
 import { CONTACT_EMAIL, WHATSAPP_NUMBER } from "@/lib/config";
 
@@ -18,10 +19,19 @@ export function Footer() {
     <footer className="bg-vbi-navy-dark text-white/80">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-14 md:grid-cols-3 md:px-8">
         <div>
-          <span className="font-heading text-xl font-bold uppercase tracking-wide text-white">
-            Visi Berkat Internasional
-          </span>
-          <p className="mt-3 max-w-xs text-sm text-white/70">
+          <div className="flex items-center gap-2.5">
+            <Image
+              src="/images/logo.png"
+              alt="PT. Visi Berkat Internasional"
+              width={32}
+              height={32}
+              className="h-8 w-auto object-contain brightness-0 invert"
+            />
+            <span className="font-heading text-lg font-bold uppercase tracking-wide text-white">
+              Visi Berkat Internasional
+            </span>
+          </div>
+          <p className="mt-4 max-w-xs text-sm text-white/70">
             {t("footerDesc")}
           </p>
         </div>
