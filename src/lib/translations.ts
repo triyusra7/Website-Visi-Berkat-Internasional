@@ -421,15 +421,15 @@ export const translations = {
     waInquiryContact: "您好，我想与 VBI 取得联系。",
 
     // Hero
-    heroSub: "正宗印尼食谱",
-    heroTitle: "我们不仅出口零食，更是在向世界分享印尼的饮食文化。",
-    heroDesc: "PT. Visi Berkat Internasional 精心制作并出口正宗印尼零食——从香脆春卷到传统经典零食。我们拥有 4 个定位品牌，全部符合国际质量标准。",
+    heroSub: "Authentic Indonesian Recipes",
+    heroTitle: "我们不仅出口零食，更是在向世界分享印尼的饮食文化",
+    heroDesc: "PT. Visi Berkat Internasional 精心制作并出口正宗印尼零食——从香脆春卷到传统经典零食。我们拥有旗下 4 大品牌，全部符合国际质量标准。",
     btnViewCatalog: "查看产品目录",
     btnChatWa: "WhatsApp 在线咨询",
 
     // Stats
     statProducts: "产品类型",
-    statQuality: "优质保障",
+    statQuality: "品质保证",
     statOriginal: "正宗风味",
 
     // About Snippet (Home)
@@ -441,8 +441,8 @@ export const translations = {
 
     // Brand Showcase
     brandsSub: "旗下品牌",
-    brandsTitle: "四大核心品牌，同一个品质承诺。",
-    brandsPageTitle: "四大自主品牌，满足各种采购需求。",
+    brandsTitle: "四大核心品牌，同一个品质承诺",
+    brandsPageTitle: "旗下 4 大品牌，满足各种采购需求",
     brandsPageDesc: "从大包装散装出口到精美零售包装产品，我们的品牌代表了印尼零食的多元、品质与正宗。",
     btnViewProducts: "查看产品",
 
@@ -460,7 +460,7 @@ export const translations = {
     // Footer
     footerDesc: "向世界分享印尼的美食文化，分享每一口地道零食的快乐。",
     footerQuickLinks: "快速链接",
-    footerGetInTouch: "取得联系",
+    footerGetInTouch: "联系我们",
     footerRights: "版权所有。",
 
     // About Page
@@ -471,7 +471,7 @@ export const translations = {
     aboutSpecialization: "核心优势",
     aboutSpecializationDesc: "我们专注于生产和出口高品质的印尼零食，包括：",
     aboutCTA: "想了解更多关于与我们合作的信息吗？",
-    btnGetInTouch: "取得联系",
+    btnGetInTouch: "联系我们",
     aboutVisionPoint1: "正宗的印尼风味",
     aboutVisionPoint2: "始终如一的产品质量",
     aboutVisionPoint3: "符合国际食品安全标准",
@@ -482,11 +482,11 @@ export const translations = {
     aboutMissionPoint4: "不断创新符合国际市场需求的印尼零食产品",
     aboutSpecializationPoint1: "香脆春卷 (传统与现代风味)",
     aboutSpecializationPoint2: "正宗的印尼传统零食",
-    aboutSpecializationPoint3: "面向国际市场的定制零食产品 (OEM / 自主品牌)",
+    aboutSpecializationPoint3: "面向国际市场的定制零食产品 (OEM / 贴牌代工)",
     aboutSpecializationPoint4: "根据市场需求量身定制的出口型零食解决方案",
 
     // Contact Page
-    contactTitle: "让我们携手合作，将印尼的地道美味带给世界。",
+    contactTitle: "让我们携手合作，将印尼的地道美味带给世界",
     contactWa: "WhatsApp",
     contactEmail: "电子邮件",
     contactAddress: "公司地址",
@@ -534,16 +534,16 @@ export const translations = {
 
     cat_spring_roll: "春卷",
     cat_samosa: "萨莫萨三角饺",
-    cat_ekado: "艾卡多/福袋",
+    cat_ekado: "鸡肉饺 (Ekado)",
     cat_pangsit: "脆皮馄饨",
     cat_pastel: "百思特酥饼",
-    cat_telur_gabus: "加布斯卵鸡蛋卷",
+    cat_telur_gabus: "印尼蛋酥条 (Telur Gabus)",
     cat_soes: "Sus 酥脆泡芙",
     cat_nuts: "坚果类",
-    cat_bolu: "干海绵蛋糕",
+    cat_bolu: "蛋糕干",
     cat_tambang: "麻花",
     cat_chips: "薯片",
-    cat_stick: "薯条",
+    cat_stick: "香脆薯棒 (Potato stick)",
     cat_cone: "锥形薯脆",
 
     // Dynamic flavors

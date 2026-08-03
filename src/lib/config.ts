@@ -1,5 +1,6 @@
 export const SITE_NAME = "PT. Visi Berkat Internasional";
-export const SITE_URL = "https://visiberkatinternasional.com";
+export const SITE_URL = "https://www.visiberkatinternasional.net";
+
 
 export const WHATSAPP_NUMBER = "6281806046098";
 export const CONTACT_EMAIL = "office@ptvisiberkatinternasional.net";

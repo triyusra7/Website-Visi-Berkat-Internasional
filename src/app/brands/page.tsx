@@ -23,11 +23,11 @@ export default async function BrandsPage() {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
-      <Reveal className="mx-auto mb-14 max-w-2xl text-center">
+      <Reveal className="mx-auto mb-14 max-w-4xl text-center">
         <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-vbi-red">
           {dict.brandsSub}
         </p>
-        <h1 className="font-heading text-3xl font-bold text-vbi-navy md:text-5xl">
+        <h1 className="font-heading text-3xl font-bold text-vbi-navy md:text-4xl lg:text-5xl">
           {dict.brandsPageTitle}
         </h1>
         <p className="mt-4 text-base text-muted-foreground">
