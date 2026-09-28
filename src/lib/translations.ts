@@ -17,7 +17,7 @@ export const translations = {
     // Hero
     heroSub: "Authentic Indonesian Recipes",
     heroTitle: "We are not just exporting snacks, we are sharing Indonesia's culture with the world.",
-    heroDesc: "PT. Visi Berkat Internasional crafts and exports authentic Indonesian snacks — from crispy spring rolls to traditional favorites — meeting international quality standards across 4 distinct brands.",
+    heroDesc: "PT. Visi Berkat Internasional crafts and exports authentic Indonesian snacks, crackers and layer cakes — from crispy spring rolls to traditional favorites — meeting international quality standards across {count} brands.",
     btnViewCatalog: "View Catalog",
     btnChatWa: "Chat on WhatsApp",
 
@@ -35,9 +35,9 @@ export const translations = {
 
     // Brand Showcase (Home & Brands page)
     brandsSub: "Our Brands",
-    brandsTitle: "Four brands, one commitment to quality.",
-    brandsPageTitle: "Four brands, every kind of buyer.",
-    brandsPageDesc: "From bulk export snacks to retail-ready products, our brands represent the diversity, quality, and authenticity of Indonesian snacks.",
+    brandsTitle: "{count} partner brands, one commitment to quality.",
+    brandsPageTitle: "{count} brands, every kind of buyer.",
+    brandsPageDesc: "From bulk export snacks to retail-ready products, crackers and layer cakes, our {count} brands represent the diversity, quality, and authenticity of Indonesian food.",
     btnViewProducts: "View Products",
 
     // Featured Products
@@ -88,12 +88,23 @@ export const translations = {
 
     // Products Browser
     productsTitle: "Products",
-    productsDesc: "Explore our export-ready snack portfolio across wholesale and retail lines.",
+    productsDesc: "Explore our export-ready portfolio: Indonesian snacks, crackers (kerupuk) and layer cakes (lapis legit), across wholesale and retail lines.",
     searchPlaceholder: "Search products...",
     filterAllBrands: "All Brands",
     filterAllCategories: "All Categories",
     filterAllPackaging: "All Packaging",
     filterBrand: "Brand",
+    filterGroup: "Product Type",
+    filterAllGroups: "All Products",
+    filterBrandHint: "Already know the brand?",
+    groupCount: "{count} products",
+    group_all_desc: "Everything we export, in one place",
+    group_snacks: "Snacks",
+    group_kerupuk: "Crackers",
+    group_lapis_legit: "Layer Cake",
+    group_snacks_desc: "Spring rolls, samosa, nuts, chips & more",
+    group_kerupuk_desc: "Shrimp, fish, garlic & vegetable kerupuk",
+    group_lapis_legit_desc: "Lapis legit, the Indonesian layered cake",
     filterCategory: "Category",
     filterPackaging: "Packaging Type",
     showingProducts: "Showing {count} of {total} products",
@@ -110,18 +121,31 @@ export const translations = {
     specWeight: "Net Weight",
     specCartonSize: "Carton Size (cm)",
     specShelfLife: "Shelf Life",
+    specComposition: "Composition",
+    specPacking: "Packing",
+    specVariants: "Variants",
+    specBulkOption: "Bulk Option",
+    bulkOptionAvailable: "Available (bulk bag)",
+    badgeBulkOption: "Bulk Option",
+    compositionFormat: "{pct} {ing}",
+    ing_shrimp: "shrimp",
+    ing_fish: "fish",
+    ing_garlic: "garlic",
     btnDetail: "Detail",
 
     // Dynamic brand data
-    brand_Sarikaya_tagline: "Snack for Everyone",
-    brand_Sarikaya_desc: "Full range of traditional Indonesian snacks — spring rolls, samosas, nuts, dry snacks, and potato products — in bulk/carton packaging built for B2B and export.",
-    brand_Springlee_tagline: "Snacks for Everyone",
-    brand_Springlee_desc: "Retail-ready packaging across Standard and Premium lines — spring rolls, samosas, ekado, nuts, and chips, made for shelf-ready distribution.",
-    brand_Ryori_tagline: "Potato Cone Snacks",
-    brand_Ryori_desc: "Crunchy cone-shaped potato snacks in small 35g retail packs.",
-    brand_Sweetfulli_tagline: "Sweet Snack Collection",
-    brand_Sweetfulli_desc: "Sweet snack collection built around mini choux pastry (soes) treats.",
+    brand_sarikaya_desc: "Full range of traditional Indonesian snacks — spring rolls, samosas, nuts, dry snacks, and potato products — in bulk/carton packaging built for B2B and export.",
+    brand_springlee_desc: "Retail-ready packaging across Standard and Premium lines — spring rolls, samosas, ekado, nuts, and chips, made for shelf-ready distribution.",
+    brand_ryori_desc: "Crunchy cone-shaped potato snacks in small 35g retail packs.",
+    brand_sweetfulli_desc: "Sweet snack collection built around mini choux pastry (soes) treats.",
 
+    brand_komodo_desc: "Sidoarjo shrimp crackers from Komodo Foods in three grades — Super 777, Merah and Hijau — with GK, KC, stick and mini pack options.",
+    brand_aloha_desc: "Aloha Sidoarjo shrimp crackers in three grades (Super, Baru, Export), packed 20 Kg per carton with a bulk-bag option on every variant.",
+    brand_amigo_desc: "Amigo Original shrimp crackers in white plastic packs, supplied by the carton or in bulk.",
+    "brand_ny-sioe_desc": "Ny. Sioe Istimewa shrimp crackers with 35% shrimp content, in GK and stick cut, with a bulk option.",
+    brand_finna_desc: "The widest cracker range we carry: shrimp, fish, garlic and vegetable crackers from one of Sidoarjo's established producers.",
+    brand_monica_desc: "Layer cake (lapis legit) from the Marizafoods family, an Indonesian food brand since 1973, in 1200 g, 600 g and 410 g boxes.",
+    brand_morisca_desc: "Layer cake (lapis legit) in 365 g and 270 g packs, six flavours from original to durian, with a 24-month shelf life.",
     // Dynamic translations helper for categories/flavors/packaging
     packaging_bulk: "Bulk",
     packaging_retail: "Retail",
@@ -139,6 +163,11 @@ export const translations = {
     cat_chips: "Potato Chips",
     cat_stick: "Potato Stick",
     cat_cone: "Potato Cone",
+    cat_kerupuk_udang: "Shrimp Crackers",
+    cat_kerupuk_ikan: "Fish Crackers",
+    cat_kerupuk_bawang: "Garlic Crackers",
+    cat_kerupuk_sayur: "Vegetable Crackers",
+    cat_lapis_legit: "Layer Cake",
 
     // Dynamic flavors
     flav_shrimp_orig: "Shrimp (Original)",
@@ -180,6 +209,16 @@ export const translations = {
     flav_spicy_grilled_shrimp: "Spicy Grilled Dried Shrimp",
     flav_spicy: "Spicy",
     flav_salted_egg: "Salted Egg",
+    flav_shrimp: "Shrimp",
+    flav_fish: "Fish",
+    flav_garlic: "Garlic",
+    flav_vegetable_cassava: "Vegetable & Cassava",
+    flav_coconut_chocolate: "Coconut Chocolate",
+    flav_kaya: "Kaya",
+    flav_pandan: "Pandan",
+    flav_durian: "Durian",
+    flav_jackfruit: "Jackfruit",
+    flav_special: "Special",
 
     // Product descriptions
     desc_sumpia_udang: "Crispy spring roll filled with dried shrimp.",
@@ -197,6 +236,12 @@ export const translations = {
     desc_potato_cone_beef_barbecue: "Crunchy cone-shaped potato snack with savory beef barbecue flavor, perfect for everyday snacking.",
     desc_potato_cone_sweet_onion: "Crunchy cone-shaped potato snack with sweet onion flavor, light and enjoyable for daily snacking.",
     desc_soes_mini_choco: "Mini crispy choux pastry filled with premium chocolate, offering a delightful sweet treat.",
+    desc_komodo_cuts: "GK = Gondang (large round), KC = Kancing (small round), Stik = stick cut.",
+    desc_orange_pack: "Orange pack.",
+    desc_blue_pack: "Blue pack.",
+    desc_red_pack: "Red pack.",
+    desc_white_pack: "White plastic pack.",
+    desc_monica: "Layer cake (lapis legit) from the Marizafoods family, an Indonesian food brand since 1973.",
 
     // Time units
     unit_months: "Months",
@@ -220,7 +265,7 @@ export const translations = {
     // Hero
     heroSub: "Resep Asli Indonesia",
     heroTitle: "Kami tidak hanya mengekspor camilan, kami membagikan budaya Indonesia ke dunia.",
-    heroDesc: "PT. Visi Berkat Internasional memproduksi dan mengekspor camilan asli Indonesia — mulai dari sumpia renyah hingga camilan tradisional favorit — memenuhi standar kualitas internasional di bawah 4 merek kami.",
+    heroDesc: "PT. Visi Berkat Internasional memproduksi dan mengekspor camilan asli Indonesia, kerupuk, dan lapis legit — mulai dari sumpia renyah hingga camilan tradisional favorit — memenuhi standar kualitas internasional di bawah {count} merek.",
     btnViewCatalog: "Lihat Katalog",
     btnChatWa: "Hubungi via WhatsApp",
 
@@ -238,9 +283,9 @@ export const translations = {
 
     // Brand Showcase
     brandsSub: "Merek Kami",
-    brandsTitle: "Empat merek, satu komitmen terhadap kualitas.",
-    brandsPageTitle: "Empat merek, menjangkau setiap pembeli.",
-    brandsPageDesc: "Mulai dari camilan ekspor curah (bulk) hingga produk siap retail, merek-merek kami mewakili keragaman, kualitas, dan keaslian cita rasa Indonesia.",
+    brandsTitle: "{count} merek mitra, satu komitmen terhadap kualitas.",
+    brandsPageTitle: "{count} merek, menjangkau setiap pembeli.",
+    brandsPageDesc: "Mulai dari camilan ekspor curah (bulk), produk siap retail, kerupuk, hingga lapis legit, {count} merek kami mewakili keragaman, kualitas, dan keaslian cita rasa Indonesia.",
     btnViewProducts: "Lihat Produk",
 
     // Featured Products
@@ -291,12 +336,23 @@ export const translations = {
 
     // Products Browser
     productsTitle: "Produk",
-    productsDesc: "Jelajahi rangkaian produk camilan ekspor kami, tersedia dalam lini grosir maupun eceran.",
+    productsDesc: "Jelajahi rangkaian produk ekspor kami: camilan Indonesia, kerupuk, dan lapis legit, tersedia dalam lini grosir maupun eceran.",
     searchPlaceholder: "Cari produk...",
     filterAllBrands: "Semua Merek",
     filterAllCategories: "Semua Kategori",
     filterAllPackaging: "Semua Kemasan",
     filterBrand: "Merek",
+    filterGroup: "Jenis Produk",
+    filterAllGroups: "Semua Produk",
+    filterBrandHint: "Sudah tahu mereknya?",
+    groupCount: "{count} produk",
+    group_all_desc: "Semua produk ekspor kami dalam satu tempat",
+    group_snacks: "Camilan",
+    group_kerupuk: "Kerupuk",
+    group_lapis_legit: "Lapis Legit",
+    group_snacks_desc: "Sumpia, samosa, kacang, keripik & lainnya",
+    group_kerupuk_desc: "Kerupuk mentah udang, ikan, bawang & sayur",
+    group_lapis_legit_desc: "Kue lapis legit khas Indonesia",
     filterCategory: "Kategori",
     filterPackaging: "Jenis Kemasan",
     showingProducts: "Menampilkan {count} dari {total} produk",
@@ -313,18 +369,31 @@ export const translations = {
     specWeight: "Berat Bersih",
     specCartonSize: "Ukuran Karton (cm)",
     specShelfLife: "Masa Simpan",
+    specComposition: "Komposisi",
+    specPacking: "Isi per Karton",
+    specVariants: "Varian",
+    specBulkOption: "Opsi Curah",
+    bulkOptionAvailable: "Tersedia (karung besar)",
+    badgeBulkOption: "Opsi Curah",
+    compositionFormat: "{pct} {ing}",
+    ing_shrimp: "udang",
+    ing_fish: "ikan",
+    ing_garlic: "bawang putih",
     btnDetail: "Detail",
 
     // Dynamic brand data
-    brand_Sarikaya_tagline: "Camilan untuk Semua Orang",
-    brand_Sarikaya_desc: "Rangkaian lengkap camilan tradisional Indonesia — sumpia, samosa, kacang-kacangan, camilan kering, dan produk kentang — dalam kemasan curah/karton yang dirancang untuk B2B dan ekspor.",
-    brand_Springlee_tagline: "Camilan untuk Semua Orang",
-    brand_Springlee_desc: "Kemasan siap retail untuk lini Standar dan Premium — sumpia, samosa, ekado, kacang-kacangan, dan keripik, dibuat untuk distribusi siap pajang di rak.",
-    brand_Ryori_tagline: "Camilan Kentang Kerucut",
-    brand_Ryori_desc: "Camilan kentang renyah berbentuk kerucut dalam kemasan eceran kecil 35g.",
-    brand_Sweetfulli_tagline: "Koleksi Camilan Manis",
-    brand_Sweetfulli_desc: "Koleksi camilan manis dengan fokus utama pada kelezatan kue sus kering mini.",
+    brand_sarikaya_desc: "Rangkaian lengkap camilan tradisional Indonesia — sumpia, samosa, kacang-kacangan, camilan kering, dan produk kentang — dalam kemasan curah/karton yang dirancang untuk B2B dan ekspor.",
+    brand_springlee_desc: "Kemasan siap retail untuk lini Standar dan Premium — sumpia, samosa, ekado, kacang-kacangan, dan keripik, dibuat untuk distribusi siap pajang di rak.",
+    brand_ryori_desc: "Camilan kentang renyah berbentuk kerucut dalam kemasan eceran kecil 35g.",
+    brand_sweetfulli_desc: "Koleksi camilan manis dengan fokus utama pada kelezatan kue sus kering mini.",
 
+    brand_komodo_desc: "Kerupuk udang Sidoarjo dari Komodo Foods dalam tiga kelas — Super 777, Merah, dan Hijau — dengan pilihan GK, KC, stik, dan kemasan mini.",
+    brand_aloha_desc: "Kerupuk udang Aloha Sidoarjo dalam tiga kelas (Super, Baru, Export), 20 Kg per karton dengan opsi karung curah untuk semua varian.",
+    brand_amigo_desc: "Kerupuk udang Amigo Original dalam kemasan plastik putih, tersedia per karton maupun curah.",
+    "brand_ny-sioe_desc": "Kerupuk udang Ny. Sioe Istimewa dengan kandungan udang 35%, potongan GK dan stik, dengan opsi curah.",
+    brand_finna_desc: "Rangkaian kerupuk terlengkap kami: kerupuk udang, ikan, bawang, dan sayur dari salah satu produsen berpengalaman di Sidoarjo.",
+    brand_monica_desc: "Lapis legit dari keluarga Marizafoods, merek makanan Indonesia sejak 1973, dalam kotak 1200 g, 600 g, dan 410 g.",
+    brand_morisca_desc: "Lapis legit dalam kemasan 365 g dan 270 g, enam rasa dari original hingga durian, dengan masa simpan 24 bulan.",
     // Dynamic translations helper for categories/flavors/packaging
     packaging_bulk: "Curah (Bulk)",
     packaging_retail: "Eceran (Retail)",
@@ -342,6 +411,11 @@ export const translations = {
     cat_chips: "Keripik Kentang",
     cat_stick: "Stik Kentang",
     cat_cone: "Camilan Kentang Kerucut",
+    cat_kerupuk_udang: "Kerupuk Udang",
+    cat_kerupuk_ikan: "Kerupuk Ikan",
+    cat_kerupuk_bawang: "Kerupuk Bawang",
+    cat_kerupuk_sayur: "Kerupuk Sayur",
+    cat_lapis_legit: "Lapis Legit",
 
     // Dynamic flavors
     flav_shrimp_orig: "Udang (Original)",
@@ -383,6 +457,16 @@ export const translations = {
     flav_spicy_grilled_shrimp: "Udang Kering Panggang Pedas",
     flav_spicy: "Pedas",
     flav_salted_egg: "Telur Asin",
+    flav_shrimp: "Udang",
+    flav_fish: "Ikan",
+    flav_garlic: "Bawang Putih",
+    flav_vegetable_cassava: "Sayur & Singkong",
+    flav_coconut_chocolate: "Coklat Kelapa",
+    flav_kaya: "Srikaya",
+    flav_pandan: "Pandan",
+    flav_durian: "Durian",
+    flav_jackfruit: "Nangka",
+    flav_special: "Spesial",
 
     // Product descriptions
     desc_sumpia_udang: "Sumpia renyah dengan isian udang kering.",
@@ -400,6 +484,12 @@ export const translations = {
     desc_potato_cone_beef_barbecue: "Camilan kentang renyah berbentuk kerucut dengan rasa sapi panggang yang gurih, cocok untuk dinikmati setiap hari.",
     desc_potato_cone_sweet_onion: "Camilan kentang renyah berbentuk kerucut dengan rasa bawang manis, ringan dan lezat untuk dinikmati setiap hari.",
     desc_soes_mini_choco: "Sus kering renyah berukuran mini dengan isian cokelat premium, memberikan kelezatan rasa manis yang memanjakan.",
+    desc_komodo_cuts: "GK = Gondang (bulat besar), KC = Kancing (bulat kecil), Stik = potongan stik.",
+    desc_orange_pack: "Kemasan oranye.",
+    desc_blue_pack: "Kemasan biru.",
+    desc_red_pack: "Kemasan merah.",
+    desc_white_pack: "Kemasan plastik putih.",
+    desc_monica: "Lapis legit dari keluarga Marizafoods, merek makanan Indonesia sejak 1973.",
 
     // Time units
     unit_months: "Bulan",
@@ -423,7 +513,7 @@ export const translations = {
     // Hero
     heroSub: "Authentic Indonesian Recipes",
     heroTitle: "我们不仅出口零食，更是在向世界分享印尼的饮食文化",
-    heroDesc: "PT. Visi Berkat Internasional 精心制作并出口正宗印尼零食——从香脆春卷到传统经典零食。我们拥有旗下 4 大品牌，全部符合国际质量标准。",
+    heroDesc: "PT. Visi Berkat Internasional 精心制作并出口正宗印尼零食、虾片 (Kerupuk) 和千层蛋糕 (Lapis Legit)——从香脆春卷到传统经典零食。旗下 {count} 个品牌，全部符合国际质量标准。",
     btnViewCatalog: "查看产品目录",
     btnChatWa: "WhatsApp 在线咨询",
 
@@ -441,9 +531,9 @@ export const translations = {
 
     // Brand Showcase
     brandsSub: "旗下品牌",
-    brandsTitle: "四大核心品牌，同一个品质承诺",
-    brandsPageTitle: "旗下 4 大品牌，满足各种采购需求",
-    brandsPageDesc: "从大包装散装出口到精美零售包装产品，我们的品牌代表了印尼零食的多元、品质与正宗。",
+    brandsTitle: "{count} 个合作品牌，同一个品质承诺",
+    brandsPageTitle: "旗下 {count} 个品牌，满足各种采购需求",
+    brandsPageDesc: "从大包装散装出口零食、零售包装产品，到虾片和千层蛋糕，我们的 {count} 个品牌代表了印尼美食的多元、品质与正宗。",
     btnViewProducts: "查看产品",
 
     // Featured Products
@@ -494,12 +584,23 @@ export const translations = {
 
     // Products Browser
     productsTitle: "产品中心",
-    productsDesc: "浏览我们为全球出口准备的散装与零售零食组合。",
+    productsDesc: "浏览我们为全球出口准备的产品组合：印尼零食、虾片 (Kerupuk) 和千层蛋糕 (Lapis Legit)，提供散装与零售包装。",
     searchPlaceholder: "搜索产品...",
     filterAllBrands: "所有品牌",
     filterAllCategories: "所有品类",
     filterAllPackaging: "所有包装",
     filterBrand: "品牌",
+    filterGroup: "产品类型",
+    filterAllGroups: "全部产品",
+    filterBrandHint: "已经知道品牌？",
+    groupCount: "{count} 款产品",
+    group_all_desc: "所有出口产品，一站浏览",
+    group_snacks: "休闲零食",
+    group_kerupuk: "虾片 (Kerupuk)",
+    group_lapis_legit: "千层蛋糕",
+    group_snacks_desc: "春卷、萨莫萨、坚果、薯片等",
+    group_kerupuk_desc: "生虾片、鱼片、蒜味及蔬菜薄脆",
+    group_lapis_legit_desc: "印尼传统千层蛋糕 (Lapis Legit)",
     filterCategory: "产品品类",
     filterPackaging: "包装形式",
     showingProducts: "显示 {total} 个产品中的 {count} 个",
@@ -516,18 +617,31 @@ export const translations = {
     specWeight: "净重",
     specCartonSize: "外箱尺寸 (厘米)",
     specShelfLife: "保质期",
+    specComposition: "成分",
+    specPacking: "装箱规格",
+    specVariants: "规格",
+    specBulkOption: "散装选项",
+    bulkOptionAvailable: "可提供 (大袋散装)",
+    badgeBulkOption: "可散装",
+    compositionFormat: "{ing}含量 {pct}",
+    ing_shrimp: "虾",
+    ing_fish: "鱼",
+    ing_garlic: "蒜",
     btnDetail: "查看详情",
 
     // Dynamic brand data
-    brand_Sarikaya_tagline: "适合每个人的零食",
-    brand_Sarikaya_desc: "提供全系列的传统印尼零食——春卷、萨莫萨三角饺、坚果、干零食和土豆制品——采用专为B2B和出口设计的大宗/纸箱包装。",
-    brand_Springlee_tagline: "适合每个人的零食",
-    brand_Springlee_desc: "标准和高级系列的零售包装形式——春卷、萨莫萨三角饺、艾卡多、坚果和薯片，专为零售上架分销而制。",
-    brand_Ryori_tagline: "锥形薯条零食",
-    brand_Ryori_desc: "香脆的锥形土豆零食，采用35克小零售包装形式。",
-    brand_Sweetfulli_tagline: "甜点零食系列",
-    brand_Sweetfulli_desc: "以迷你酥脆泡芙为主的甜点零食系列。",
+    brand_sarikaya_desc: "提供全系列的传统印尼零食——春卷、萨莫萨三角饺、坚果、干零食和土豆制品——采用专为B2B和出口设计的大宗/纸箱包装。",
+    brand_springlee_desc: "标准和高级系列的零售包装形式——春卷、萨莫萨三角饺、艾卡多、坚果和薯片，专为零售上架分销而制。",
+    brand_ryori_desc: "香脆的锥形土豆零食，采用35克小零售包装形式。",
+    brand_sweetfulli_desc: "以迷你酥脆泡芙为主的甜点零食系列。",
 
+    brand_komodo_desc: "Komodo Foods 出品的诗都阿佐虾片，分 Super 777、红 (Merah)、绿 (Hijau) 三个等级，提供 GK、KC、条状及迷你包装。",
+    brand_aloha_desc: "Aloha 诗都阿佐虾片，分 Super、Baru、Export 三个等级，每箱 20 公斤，所有规格均可大袋散装。",
+    brand_amigo_desc: "Amigo 原味虾片，白色塑料包装，可按箱或散装供应。",
+    "brand_ny-sioe_desc": "Ny. Sioe Istimewa 虾片，虾含量 35%，提供 GK 圆片和条状两种切法，可散装供应。",
+    brand_finna_desc: "我们品类最全的虾片系列：虾片、鱼片、蒜味及蔬菜薄脆，来自诗都阿佐的知名厂商。",
+    brand_monica_desc: "来自 Marizafoods（始于 1973 年的印尼食品品牌）的千层蛋糕，提供 1200 克、600 克和 410 克盒装。",
+    brand_morisca_desc: "千层蛋糕，365 克和 270 克装，从原味到榴莲共六种口味，保质期 24 个月。",
     // Dynamic translations helper for categories/flavors/packaging
     packaging_bulk: "散装 (Bulk)",
     packaging_retail: "零售 (Retail)",
@@ -545,6 +659,11 @@ export const translations = {
     cat_chips: "薯片",
     cat_stick: "香脆薯棒 (Potato stick)",
     cat_cone: "锥形薯脆",
+    cat_kerupuk_udang: "虾片",
+    cat_kerupuk_ikan: "鱼片",
+    cat_kerupuk_bawang: "蒜味薄脆",
+    cat_kerupuk_sayur: "蔬菜薄脆",
+    cat_lapis_legit: "千层蛋糕",
 
     // Dynamic flavors
     flav_shrimp_orig: "虾味 (原味)",
@@ -586,6 +705,16 @@ export const translations = {
     flav_spicy_grilled_shrimp: "香辣烤虾米味",
     flav_spicy: "辣味",
     flav_salted_egg: "咸蛋黄味",
+    flav_shrimp: "虾味",
+    flav_fish: "鱼味",
+    flav_garlic: "蒜香味",
+    flav_vegetable_cassava: "蔬菜木薯",
+    flav_coconut_chocolate: "椰子巧克力味",
+    flav_kaya: "咖椰味",
+    flav_pandan: "香兰味",
+    flav_durian: "榴莲味",
+    flav_jackfruit: "菠萝蜜味",
+    flav_special: "特制",
 
     // Product descriptions
     desc_sumpia_udang: "香脆春卷，内陷为优质虾米。",
@@ -603,6 +732,12 @@ export const translations = {
     desc_potato_cone_beef_barbecue: "香脆锥形薯脆，伴有美味烤牛肉风味，日常零食的完美选择。",
     desc_potato_cone_sweet_onion: "香脆锥形薯脆，带有清甜洋葱味，口感轻盈，适合日常零食。",
     desc_soes_mini_choco: "香脆小巧的泡芙，内嵌优质巧克力，为您带来甜美的享受。",
+    desc_komodo_cuts: "GK = Gondang（大圆片），KC = Kancing（小圆片），Stik = 条状。",
+    desc_orange_pack: "橙色包装。",
+    desc_blue_pack: "蓝色包装。",
+    desc_red_pack: "红色包装。",
+    desc_white_pack: "白色塑料包装。",
+    desc_monica: "来自 Marizafoods（始于 1973 年的印尼食品品牌）的千层蛋糕。",
 
     // Time units
     unit_months: "个月",
@@ -637,6 +772,11 @@ export function translateCategory(cat: string, lang: string): string {
   if (normalized === "potato chips") return t.cat_chips;
   if (normalized === "potato stick") return t.cat_stick;
   if (normalized === "potato cone") return t.cat_cone;
+  if (normalized === "kerupuk udang") return t.cat_kerupuk_udang;
+  if (normalized === "kerupuk ikan") return t.cat_kerupuk_ikan;
+  if (normalized === "kerupuk bawang") return t.cat_kerupuk_bawang;
+  if (normalized === "kerupuk sayur") return t.cat_kerupuk_sayur;
+  if (normalized === "lapis legit") return t.cat_lapis_legit;
   return cat;
 }
 
@@ -690,9 +830,36 @@ export function translateFlavor(flav: string, lang: string): string {
     "spicy grilled dried shrimp": t.flav_spicy_grilled_shrimp,
     "spicy": t.flav_spicy,
     "salted egg": t.flav_salted_egg,
+    "shrimp": t.flav_shrimp,
+    "fish": t.flav_fish,
+    "garlic": t.flav_garlic,
+    "vegetable & cassava": t.flav_vegetable_cassava,
+    "coconut chocolate": t.flav_coconut_chocolate,
+    "kaya": t.flav_kaya,
+    "pandan": t.flav_pandan,
+    "durian": t.flav_durian,
+    "jackfruit": t.flav_jackfruit,
+    "special": t.flav_special,
   };
-  const key = flav.toLowerCase().trim();
-  return mapping[key] || flav;
+  // Multi-flavour entries (e.g. lapis legit sizes) are comma-separated; translate each part.
+  return flav
+    .split(",")
+    .map((part) => mapping[part.toLowerCase().trim()] || part.trim())
+    .join(", ");
+}
+
+/** Translates compositions like "33.1% shrimp"; anything else is returned as-is. */
+export function translateComposition(composition: string, lang: string): string {
+  const t = getTranslations(lang);
+  const match = composition.match(/^([\d.]+%)\s+(\w+)$/);
+  if (!match) return translateFlavor(composition, lang);
+  const ingredients: Record<string, string> = {
+    shrimp: t.ing_shrimp,
+    fish: t.ing_fish,
+    garlic: t.ing_garlic,
+  };
+  const ingredient = ingredients[match[2].toLowerCase()] || match[2];
+  return t.compositionFormat.replace("{pct}", match[1]).replace("{ing}", ingredient);
 }
 
 export function translateDescription(desc: string | null, lang: string): string | null {
@@ -714,6 +881,12 @@ export function translateDescription(desc: string | null, lang: string): string 
     "crunchy cone-shaped potato snack with savory beef barbecue flavor, perfect for everyday snacking.": t.desc_potato_cone_beef_barbecue,
     "crunchy cone-shaped potato snack with sweet onion flavor, light and enjoyable for daily snacking.": t.desc_potato_cone_sweet_onion,
     "mini crispy choux pastry filled with premium chocolate, offering a delightful sweet treat.": t.desc_soes_mini_choco,
+    "gk = gondang (large round), kc = kancing (small round), stik = stick cut.": t.desc_komodo_cuts,
+    "orange pack.": t.desc_orange_pack,
+    "blue pack.": t.desc_blue_pack,
+    "red pack.": t.desc_red_pack,
+    "white plastic pack.": t.desc_white_pack,
+    "lapis legit layer cake from the marizafoods family, an indonesian food brand since 1973.": t.desc_monica,
   };
   const key = desc.toLowerCase().trim();
   return mapping[key] || desc;

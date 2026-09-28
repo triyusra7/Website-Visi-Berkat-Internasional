@@ -1,8 +1,8 @@
-import { CONTACT_ADDRESS } from "@/lib/config";
+import { CONTACT_MAP_QUERY } from "@/lib/config";
 
 export function MapEmbed() {
   // Menggunakan alamat dari config → otomatis ikut berubah jika alamat diubah
-  const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(CONTACT_ADDRESS)}&z=17&output=embed`;
+  const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(CONTACT_MAP_QUERY)}&z=17&output=embed`;
 
   return (
     <div className="relative overflow-hidden rounded-xl border border-border shadow-sm">

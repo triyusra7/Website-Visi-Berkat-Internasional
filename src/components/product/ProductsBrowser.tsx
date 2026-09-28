@@ -1,59 +1,64 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useMemo } from "react";
 import { EmptyState } from "@/components/product/EmptyState";
 import { ProductDetailModal } from "@/components/product/ProductDetailModal";
-import { ProductFilterBar, type Filters } from "@/components/product/ProductFilterBar";
+import { ProductFilterBar, type FilterOptions } from "@/components/product/ProductFilterBar";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { ProductGroupTabs } from "@/components/product/ProductGroupTabs";
 import { useTranslation } from "@/context/LanguageContext";
 import { getProductBySlug, products } from "@/data/products";
+import type { ProductGroupId } from "@/data/taxonomy";
+import {
+  countByGroup,
+  filterProducts,
+  filtersToQuery,
+  getAvailableOptions,
+  parseFilters,
+  switchGroup,
+  type ProductFilters,
+} from "@/lib/product-filters";
+import { translatePackaging } from "@/lib/translations";
+
+const GROUP_COUNTS = countByGroup(products);
 
 export function ProductsBrowser() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
 
-  const filters: Filters = {
-    brand: searchParams.get("brand"),
-    packaging: searchParams.get("packaging"),
-    category: searchParams.get("category"),
-  };
+  const filters = parseFilters(searchParams);
+  const filterQuery = filtersToQuery(filters).toString();
 
   const activeItem = searchParams.get("item");
   const activeProduct = activeItem ? getProductBySlug(activeItem) ?? null : null;
 
-  const filterQuery = new URLSearchParams();
-  if (filters.brand) filterQuery.set("brand", filters.brand);
-  if (filters.packaging) filterQuery.set("packaging", filters.packaging);
-  if (filters.category) filterQuery.set("category", filters.category);
+  const filtered = filterProducts(products, filters);
 
-  const filtered = useMemo(() => {
-    return products.filter((p) => {
-      if (filters.brand && p.brand.toLowerCase() !== filters.brand) return false;
-      if (filters.packaging && p.packaging_type.toLowerCase() !== filters.packaging) return false;
-      if (filters.category && p.category.toLowerCase() !== filters.category) return false;
-      return true;
-    });
-  }, [filters.brand, filters.packaging, filters.category]);
+  const available = getAvailableOptions(products, filters.group);
+  const options: FilterOptions = {
+    packaging: available.packaging.map((value) => ({ value, label: translatePackaging(value, language) })),
+    categoryGroups: available.categoryGroups.map((bucket) => ({
+      groupLabel: filters.group ? null : t(bucket.group.labelKey),
+      categories: bucket.categories,
+    })),
+    brands: available.brands.map((b) => ({ value: b.slug, label: b.name })),
+  };
 
-  function updateUrl(next: Filters, item?: string | null) {
-    const params = new URLSearchParams();
-    if (next.brand) params.set("brand", next.brand);
-    if (next.packaging) params.set("packaging", next.packaging);
-    if (next.category) params.set("category", next.category);
+  function updateUrl(next: ProductFilters, item?: string | null) {
+    const params = filtersToQuery(next);
     const currentItem = item !== undefined ? item : activeItem;
     if (currentItem) params.set("item", currentItem);
     const query = params.toString();
     router.push(`/products${query ? `?${query}` : ""}`, { scroll: false });
   }
 
-  function handleFilterChange(next: Filters) {
-    updateUrl(next);
+  function handleGroupChange(group: ProductGroupId | null) {
+    updateUrl(switchGroup(products, filters, group));
   }
 
   function handleClearFilters() {
-    updateUrl({ brand: null, packaging: null, category: null });
+    updateUrl({ group: null, packaging: null, category: null, brand: null });
   }
 
   function handleCloseModal() {
@@ -65,24 +70,27 @@ export function ProductsBrowser() {
     .replace("{total}", String(products.length));
 
   return (
-    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
-      <aside>
-        <ProductFilterBar filters={filters} onChange={handleFilterChange} />
-      </aside>
+    <div className="flex flex-col gap-6">
+      <ProductGroupTabs active={filters.group} counts={GROUP_COUNTS} onSelect={handleGroupChange} />
 
-      <div>
-        <p className="mb-4 text-sm text-muted-foreground">
-          {showingText}
-        </p>
-        {filtered.length > 0 ? (
-          <ProductGrid products={filtered} preserveQuery={filterQuery.toString()} />
-        ) : (
-          <EmptyState onClear={handleClearFilters} />
-        )}
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
+        <aside>
+          <ProductFilterBar filters={filters} options={options} onChange={(next) => updateUrl(next)} />
+        </aside>
+
+        <div>
+          <p className="mb-4 text-sm text-muted-foreground" aria-live="polite">
+            {showingText}
+          </p>
+          {filtered.length > 0 ? (
+            <ProductGrid products={filtered} preserveQuery={filterQuery} />
+          ) : (
+            <EmptyState onClear={handleClearFilters} />
+          )}
+        </div>
       </div>
 
       <ProductDetailModal product={activeProduct} onClose={handleCloseModal} />
     </div>
   );
 }
-

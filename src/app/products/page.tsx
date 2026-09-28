@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { cookies } from "next/headers";
 import { ProductsBrowser } from "@/components/product/ProductsBrowser";
 import { Reveal } from "@/components/shared/Reveal";
+import { CATALOG_PDF_PATH } from "@/lib/config";
 import { getTranslations, Locale } from "@/lib/translations";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -45,7 +46,7 @@ export default async function ProductsPage() {
           </h1>
         </div>
         <a
-          href="/catalog/VBI-Product-Catalog.pdf"
+          href={CATALOG_PDF_PATH}
           download
           data-analytics-event="catalog_download_click"
           className="tap-scale inline-flex shrink-0 items-center justify-center gap-2 rounded-md border-2 border-vbi-navy px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-vbi-navy transition-colors hover:bg-vbi-navy hover:text-white"

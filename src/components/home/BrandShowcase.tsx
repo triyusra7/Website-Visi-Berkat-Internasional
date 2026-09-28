@@ -16,12 +16,12 @@ export function BrandShowcase() {
             {t("brandsSub")}
           </p>
           <h2 className="font-heading text-3xl font-bold text-vbi-navy md:text-4xl">
-            {t("brandsTitle")}
+            {t("brandsTitle").replace("{count}", String(brands.length))}
           </h2>
         </Reveal>
-        <RevealGroup className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <RevealGroup className="flex flex-wrap justify-center gap-6">
           {brands.map((brand) => (
-            <RevealItem key={brand.id} className="h-full">
+            <RevealItem key={brand.id} className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]">
               <BrandCard brand={brand} />
             </RevealItem>
           ))}
@@ -30,4 +30,3 @@ export function BrandShowcase() {
     </section>
   );
 }
-

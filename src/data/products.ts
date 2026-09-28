@@ -1,4 +1,7 @@
 import type { Product } from "@/types/product";
+import { kerupukProducts } from "@/data/products-kerupuk";
+import { lapisLegitProducts } from "@/data/products-lapis-legit";
+import { getGroupIdForCategory, type ProductGroupId } from "@/data/taxonomy";
 
 const IMG = "/images/products";
 
@@ -592,8 +595,9 @@ export const products: Product[] = [
       category: "Potato Stick",
       flavor,
       net_weight: "250 g",
-      carton_size_cm: "Packed 4 x 250 g / carton",
+      carton_size_cm: null,
       shelf_life: null,
+      packing: "4 x 250 g / carton",
       description: null,
       image: `${IMG}/sarikaya-potato-stick-${shape.toLowerCase()}-${slug}.png`,
       featured: false,
@@ -693,7 +697,7 @@ export const products: Product[] = [
     shelf_life: "1 Year",
     description: "Crispy ekado filled with garlic chicken.",
     image: `${IMG}/springlee-4-ekado-ayam-bawang.png`,
-    featured: true,
+    featured: false,
   },
 
   // ===== Springlee — Premium Packaging =====
@@ -836,6 +840,10 @@ export const products: Product[] = [
     image: `${IMG}/sweetfulli-1-soes-mini-choco.png`,
     featured: true,
   },
+
+  // ===== Kerupuk & Lapis Legit =====
+  ...kerupukProducts,
+  ...lapisLegitProducts,
 ];
 
 // Slugs are the URL key for the product detail modal (item=<slug>), so a
@@ -851,6 +859,11 @@ if (process.env.NODE_ENV !== "production") {
       );
     }
     seen.set(p.slug, p.sku_id);
+    if (!getGroupIdForCategory(p.category)) {
+      throw new Error(
+        `Product "${p.sku_id}" has category "${p.category}", which is not listed in src/data/taxonomy.ts.`,
+      );
+    }
   }
 }
 
@@ -862,4 +875,6 @@ export function getFeaturedProducts(): Product[] {
   return products.filter((p) => p.featured);
 }
 
-export const categories: string[] = Array.from(new Set(products.map((p) => p.category))).sort();
+export function getProductGroupId(product: Product): ProductGroupId | undefined {
+  return getGroupIdForCategory(product.category);
+}

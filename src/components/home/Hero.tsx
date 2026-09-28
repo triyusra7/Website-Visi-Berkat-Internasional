@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { useTranslation } from "@/context/LanguageContext";
+import { brands } from "@/data/brands";
 
 const container: Variants = {
   hidden: {},
@@ -58,7 +59,7 @@ export function Hero() {
             {t("heroTitle")}
           </motion.h1>
           <motion.p variants={item} className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
-            {t("heroDesc")}
+            {t("heroDesc").replace("{count}", String(brands.length))}
           </motion.p>
           <motion.div variants={item} className="mt-8 flex flex-wrap gap-4">
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.96 }}>

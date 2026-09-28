@@ -3,15 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "@/context/LanguageContext";
-import { translateFlavor, translatePackaging } from "@/lib/translations";
+import { getBrand } from "@/data/brands";
+import { translateComposition, translateFlavor, translatePackaging } from "@/lib/translations";
 import type { Product } from "@/types/product";
-
-const BRAND_BADGE_STYLES: Record<Product["brand"], string> = {
-  Sarikaya: "bg-[#e02020]",
-  Springlee: "bg-[#7a4a2b]",
-  Ryori: "bg-[#a13a1f]",
-  Sweetfulli: "bg-[#f2a900]",
-};
 
 export function ProductCard({
   product,
@@ -21,12 +15,16 @@ export function ProductCard({
   /** Existing filter query string (without leading "?") to preserve when opening the detail modal. */
   preserveQuery?: string;
 }) {
-  const { language } = useTranslation();
+  const { t, language } = useTranslation();
   const params = new URLSearchParams(preserveQuery);
   params.set("item", product.slug);
 
   const packagingTranslated = translatePackaging(product.packaging_type, language);
-  const flavorTranslated = translateFlavor(product.flavor, language);
+  // Kerupuk lines differ by ingredient share, so show that instead of the (shared) flavour.
+  const subtitle = product.composition
+    ? translateComposition(product.composition, language)
+    : translateFlavor(product.flavor, language);
+  const brandColor = getBrand(product.brand)?.colorHex;
 
   return (
     <Link
@@ -36,10 +34,16 @@ export function ProductCard({
     >
       <div className="relative aspect-square overflow-hidden bg-secondary">
         <span
-          className={`absolute left-2 top-2 z-10 rounded px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white transition-transform duration-200 group-hover:scale-105 ${BRAND_BADGE_STYLES[product.brand]}`}
+          className="absolute left-2 top-2 z-10 rounded bg-vbi-navy px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white transition-transform duration-200 group-hover:scale-105"
+          style={brandColor ? { backgroundColor: brandColor } : undefined}
         >
           {product.brand}
         </span>
+        {product.bulk_option && (
+          <span className="absolute bottom-2 left-2 z-10 rounded bg-vbi-red px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">
+            {t("badgeBulkOption")}
+          </span>
+        )}
         <span className="absolute right-2 top-2 z-10 rounded bg-white/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-vbi-navy transition-transform duration-200 group-hover:scale-105">
           {packagingTranslated}
         </span>
@@ -55,7 +59,7 @@ export function ProductCard({
         <h3 className="line-clamp-2 text-sm font-semibold text-vbi-navy transition-colors group-hover:text-vbi-red">
           {product.product_name}
         </h3>
-        <p className="text-xs text-muted-foreground">{flavorTranslated}</p>
+        <p className="line-clamp-2 text-xs text-muted-foreground">{subtitle}</p>
         <p className="mt-auto pt-2 text-xs font-medium text-vbi-navy/80">{product.net_weight}</p>
       </div>
     </Link>

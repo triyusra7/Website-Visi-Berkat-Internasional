@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Visi Berkat Internasional",
   },
   description:
-    "We are not just exporting snacks, we are sharing Indonesia's culture with the world. Explore VBI's full catalog of authentic Indonesian snacks across 4 brands, ready for bulk export and retail distribution.",
+    "We are not just exporting snacks, we are sharing Indonesia's culture with the world. Explore VBI's full catalog of authentic Indonesian snacks, crackers and layer cakes from our partner brands, ready for bulk export and retail distribution.",
   openGraph: {
     type: "website",
     siteName: "PT. Visi Berkat Internasional",

@@ -11,6 +11,7 @@ import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { useTranslation } from "@/context/LanguageContext";
 import {
   translateCategory,
+  translateComposition,
   translateDescription,
   translateFlavor,
   translatePackaging,
@@ -22,7 +23,7 @@ type SpecRow = { label: string; value: string };
 
 function buildSpecRows(
   product: Product,
-  t: (key: any) => string,
+  t: (key: string) => string,
   language: string
 ): SpecRow[] {
   const rows: SpecRow[] = [
@@ -30,13 +31,25 @@ function buildSpecRows(
     { label: t("specPackaging"), value: translatePackaging(product.packaging_type, language) },
     { label: t("specCategory"), value: translateCategory(product.category, language) },
     { label: t("specFlavor"), value: translateFlavor(product.flavor, language) },
-    { label: t("specWeight"), value: product.net_weight },
   ];
+  if (product.composition) {
+    rows.push({ label: t("specComposition"), value: translateComposition(product.composition, language) });
+  }
+  rows.push({ label: t("specWeight"), value: product.net_weight });
+  if (product.packing) {
+    rows.push({ label: t("specPacking"), value: product.packing });
+  }
+  if (product.variants?.length) {
+    rows.push({ label: t("specVariants"), value: product.variants.join(", ") });
+  }
   if (product.carton_size_cm) {
     rows.push({ label: t("specCartonSize"), value: product.carton_size_cm });
   }
   if (product.shelf_life) {
     rows.push({ label: t("specShelfLife"), value: translateShelfLife(product.shelf_life, language) || product.shelf_life });
+  }
+  if (product.bulk_option) {
+    rows.push({ label: t("specBulkOption"), value: t("bulkOptionAvailable") });
   }
   return rows;
 }

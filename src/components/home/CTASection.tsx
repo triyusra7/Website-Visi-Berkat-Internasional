@@ -2,7 +2,7 @@
 
 import { Reveal } from "@/components/shared/Reveal";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
-import { CONTACT_EMAIL, mailtoLink } from "@/lib/config";
+import { CATALOG_PDF_PATH, CONTACT_EMAIL, mailtoLink } from "@/lib/config";
 import { useTranslation } from "@/context/LanguageContext";
 
 export function CTASection() {
@@ -30,7 +30,7 @@ export function CTASection() {
           </a>
         </div>
         <a
-          href="/catalog/VBI-Product-Catalog.pdf"
+          href={CATALOG_PDF_PATH}
           download
           data-analytics-event="catalog_download_click"
           className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-white/70 underline underline-offset-4 transition-colors hover:text-white"
