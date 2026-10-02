@@ -25,19 +25,19 @@ export function Hero() {
       <motion.div
         className="absolute inset-0"
         initial={{ opacity: 0, scale: 1.08 }}
-        animate={{ opacity: 0.3, scale: 1 }}
+        animate={{ opacity: 0.6, scale: 1 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
       >
         <Image
-          src="/images/brand/hero-flatlay.png"
+          src="/images/brand/hero-photoshoot.webp"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-[50%_55%]"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-r from-vbi-navy-dark via-vbi-navy-dark/90 to-vbi-navy-dark/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-vbi-navy-dark via-vbi-navy-dark/80 to-vbi-navy-dark/20" />
 
       <motion.div
         className="relative mx-auto max-w-7xl px-4 py-24 md:px-8 md:py-36"

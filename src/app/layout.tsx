@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "PT. Visi Berkat Internasional",
-    images: ["/images/brand/hero-flatlay.png"],
+    images: ["/images/brand/og-photoshoot.jpg"],
   },
   twitter: {
     card: "summary_large_image",

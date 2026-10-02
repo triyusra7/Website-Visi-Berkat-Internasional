@@ -27,10 +27,10 @@ export const brands: BrandInfo[] = [
     id: "Ryori",
     slug: "ryori",
     name: "Ryori",
-    logoStyle: "badge",
+    logoStyle: "wordmark",
     position: "Retail",
     description: "Crunchy cone-shaped potato snacks in small 35g retail packs.",
-    logo: null,
+    logo: "/images/logos/ryori-logo.png",
     colorHex: "#a13a1f",
   },
   {
@@ -62,7 +62,7 @@ export const brands: BrandInfo[] = [
     position: "Bulk/Wholesale",
     description:
       "Aloha Sidoarjo shrimp crackers in three grades (Super, Baru, Export), packed 20 Kg per carton with a bulk-bag option on every variant.",
-    logo: "/images/logos/aloha-logo.webp",
+    logo: "/images/logos/aloha-logo.png",
     colorHex: "#c0262d",
   },
   {
@@ -72,7 +72,7 @@ export const brands: BrandInfo[] = [
     logoStyle: "wordmark",
     position: "Bulk/Wholesale",
     description: "Amigo Original shrimp crackers in white plastic packs, supplied by the carton or in bulk.",
-    logo: "/images/logos/amigo-logo.webp",
+    logo: "/images/logos/amigo-logo.png",
     colorHex: "#b3121b",
   },
   {
@@ -82,7 +82,7 @@ export const brands: BrandInfo[] = [
     logoStyle: "wordmark",
     position: "Bulk/Wholesale",
     description: "Ny. Sioe Istimewa shrimp crackers with 35% shrimp content, in GK and stick cut, with a bulk option.",
-    logo: "/images/logos/ny-sioe-logo.webp",
+    logo: "/images/logos/ny-sioe-logo.png",
     colorHex: "#a8420d",
   },
   {
@@ -103,7 +103,7 @@ export const brands: BrandInfo[] = [
     logoStyle: "wordmark",
     position: "Retail",
     description:
-      "Lapis legit layer cake from the Marizafoods family, an Indonesian food brand since 1973, in 1200 g, 600 g and 410 g boxes.",
+      "Lapis legit layer cake from the Marizafoods family, an Indonesian food brand since 1973, in a 330 g Bolu Surabaya box.",
     logo: "/images/logos/monica-logo.webp",
     colorHex: "#c8102e",
   },

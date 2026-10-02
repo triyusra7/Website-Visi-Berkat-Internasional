@@ -13,7 +13,7 @@ export function AboutSnippet() {
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
         <Reveal direction="left" className="relative aspect-[4/3] overflow-hidden rounded-xl">
           <Image
-            src="/images/brand/about-springlee-bags.png"
+            src="/images/brand/about-people-snacking.png"
             alt="Springlee snack packaging"
             fill
             sizes="(min-width: 768px) 50vw, 100vw"

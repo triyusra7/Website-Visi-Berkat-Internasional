@@ -144,7 +144,7 @@ export const translations = {
     brand_amigo_desc: "Amigo Original shrimp crackers in white plastic packs, supplied by the carton or in bulk.",
     "brand_ny-sioe_desc": "Ny. Sioe Istimewa shrimp crackers with 35% shrimp content, in GK and stick cut, with a bulk option.",
     brand_finna_desc: "The widest cracker range we carry: shrimp, fish, garlic and vegetable crackers from one of Sidoarjo's established producers.",
-    brand_monica_desc: "Layer cake (lapis legit) from the Marizafoods family, an Indonesian food brand since 1973, in 1200 g, 600 g and 410 g boxes.",
+    brand_monica_desc: "Layer cake (lapis legit) from the Marizafoods family, an Indonesian food brand since 1973, in a 330 g Bolu Surabaya box.",
     brand_morisca_desc: "Layer cake (lapis legit) in 365 g and 270 g packs, six flavours from original to durian, with a 24-month shelf life.",
     // Dynamic translations helper for categories/flavors/packaging
     packaging_bulk: "Bulk",
@@ -392,7 +392,7 @@ export const translations = {
     brand_amigo_desc: "Kerupuk udang Amigo Original dalam kemasan plastik putih, tersedia per karton maupun curah.",
     "brand_ny-sioe_desc": "Kerupuk udang Ny. Sioe Istimewa dengan kandungan udang 35%, potongan GK dan stik, dengan opsi curah.",
     brand_finna_desc: "Rangkaian kerupuk terlengkap kami: kerupuk udang, ikan, bawang, dan sayur dari salah satu produsen berpengalaman di Sidoarjo.",
-    brand_monica_desc: "Lapis legit dari keluarga Marizafoods, merek makanan Indonesia sejak 1973, dalam kotak 1200 g, 600 g, dan 410 g.",
+    brand_monica_desc: "Lapis legit dari keluarga Marizafoods, merek makanan Indonesia sejak 1973, dalam kotak Bolu Surabaya 330 g.",
     brand_morisca_desc: "Lapis legit dalam kemasan 365 g dan 270 g, enam rasa dari original hingga durian, dengan masa simpan 24 bulan.",
     // Dynamic translations helper for categories/flavors/packaging
     packaging_bulk: "Curah (Bulk)",
@@ -640,7 +640,7 @@ export const translations = {
     brand_amigo_desc: "Amigo 原味虾片，白色塑料包装，可按箱或散装供应。",
     "brand_ny-sioe_desc": "Ny. Sioe Istimewa 虾片，虾含量 35%，提供 GK 圆片和条状两种切法，可散装供应。",
     brand_finna_desc: "我们品类最全的虾片系列：虾片、鱼片、蒜味及蔬菜薄脆，来自诗都阿佐的知名厂商。",
-    brand_monica_desc: "来自 Marizafoods（始于 1973 年的印尼食品品牌）的千层蛋糕，提供 1200 克、600 克和 410 克盒装。",
+    brand_monica_desc: "来自 Marizafoods（始于 1973 年的印尼食品品牌）的千层蛋糕，提供 330 克 Bolu Surabaya 盒装。",
     brand_morisca_desc: "千层蛋糕，365 克和 270 克装，从原味到榴莲共六种口味，保质期 24 个月。",
     // Dynamic translations helper for categories/flavors/packaging
     packaging_bulk: "散装 (Bulk)",

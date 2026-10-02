@@ -10,7 +10,7 @@ const MONICA_SPEC = {
   shelf_life: "12 Months",
   packing: "1 x 10 / carton",
   description: "Lapis legit layer cake from the Marizafoods family, an Indonesian food brand since 1973.",
-  image: `${IMG}/monica-lapis-legit.webp`,
+  image: `${IMG}/monica-bolu-surabaya.webp`,
 } as const;
 
 const MORISCA_CARTON_365 = "37 x 20 x 14.5";
@@ -26,35 +26,17 @@ const MORISCA_SPEC = {
   featured: false,
 } as const;
 
-// Monica: one entry per box size (flavours listed per size).
+// Monica: Bolu Surabaya only (per catalog).
 // Morisca: one entry per flavour, matching the catalog photos.
 export const lapisLegitProducts: Product[] = [
   {
     ...MONICA_SPEC,
-    sku_id: "monica-lapis-legit-1200g",
-    slug: "monica-lapis-legit-1200g",
-    product_name: "Monica Lapis Legit 1200 g",
-    flavor: "Special, Original, Chocolate, Moscovis, Bolu Surabaya",
-    net_weight: "1200 g",
+    sku_id: "monica-bolu-surabaya-330g",
+    slug: "monica-bolu-surabaya-330g",
+    product_name: "Monica Bolu Surabaya",
+    flavor: "Bolu Surabaya",
+    net_weight: "330 g",
     featured: true,
-  },
-  {
-    ...MONICA_SPEC,
-    sku_id: "monica-lapis-legit-600g",
-    slug: "monica-lapis-legit-600g",
-    product_name: "Monica Lapis Legit 600 g",
-    flavor: "Special, Original, Chocolate, Moscovis, Bolu Surabaya",
-    net_weight: "600 g",
-    featured: false,
-  },
-  {
-    ...MONICA_SPEC,
-    sku_id: "monica-lapis-legit-410g",
-    slug: "monica-lapis-legit-410g",
-    product_name: "Monica Lapis Legit 410 g",
-    flavor: "Special, Moscovis Special, Original, Moscovis, Surabaya, Chocolate, Bolu Surabaya, Pandan",
-    net_weight: "410 g",
-    featured: false,
   },
 
   {

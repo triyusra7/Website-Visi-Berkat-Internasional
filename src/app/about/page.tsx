@@ -82,7 +82,7 @@ export default async function AboutPage() {
         <div className="mt-10 grid grid-cols-1 items-start gap-10 md:grid-cols-2">
           <Reveal direction="left" delay={0.1} className="relative aspect-[4/3] overflow-hidden rounded-xl">
             <Image
-              src="/images/brand/about-springlee-bags.png"
+              src="/images/brand/about-people-snacking.png"
               alt="Springlee snack packaging held up"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
