@@ -21,7 +21,7 @@ type Tab = {
   images: string[];
 };
 
-const IMAGE_SIZES = "(min-width: 768px) 25vw, 50vw";
+const IMAGE_SIZES = "(min-width: 768px) 20vw, 50vw";
 
 function CheckBadge() {
   return (
@@ -80,7 +80,7 @@ export function ProductGroupTabs({ active, counts, onSelect }: Props) {
   ];
 
   return (
-    <div role="group" aria-label={t("filterGroup")} className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+    <div role="group" aria-label={t("filterGroup")} className="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4">
       {tabs.map((tab) => {
         const isActive = active === tab.id;
         return (
@@ -91,6 +91,8 @@ export function ProductGroupTabs({ active, counts, onSelect }: Props) {
             onClick={() => onSelect(tab.id)}
             whileTap={{ scale: 0.97 }}
             className={cn(
+              // Five cards: "All" spans the full row on mobile so the four groups pair up below it.
+              tab.id === null && "col-span-2 md:col-span-1",
               "group relative isolate flex h-32 flex-col justify-between overflow-hidden rounded-2xl p-3 text-left sm:h-36 md:p-4 lg:h-44",
               "shadow-sm transition-shadow duration-300 hover:shadow-xl",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vbi-red focus-visible:ring-offset-2",

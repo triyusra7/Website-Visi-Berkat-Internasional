@@ -1,6 +1,7 @@
 import type { Product } from "@/types/product";
 import { kerupukProducts } from "@/data/products-kerupuk";
 import { lapisLegitProducts } from "@/data/products-lapis-legit";
+import { jamToppingProducts } from "@/data/products-jam-topping";
 import { getGroupIdForCategory, type ProductGroupId } from "@/data/taxonomy";
 
 const IMG = "/images/products";
@@ -841,9 +842,10 @@ export const products: Product[] = [
     featured: true,
   },
 
-  // ===== Kerupuk & Lapis Legit =====
+  // ===== Kerupuk, Lapis Legit & Jam/Topping =====
   ...kerupukProducts,
   ...lapisLegitProducts,
+  ...jamToppingProducts,
 ];
 
 // Slugs are the URL key for the product detail modal (item=<slug>), so a

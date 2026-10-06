@@ -9,7 +9,8 @@ export type Brand =
   | "Ny. Sioe"
   | "Finna"
   | "Monica"
-  | "Morisca";
+  | "Morisca"
+  | "Mariza";
 export type PackagingType = "Bulk" | "Retail";
 
 export type Product = {

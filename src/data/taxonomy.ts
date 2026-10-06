@@ -5,7 +5,7 @@
  * Adding a category or group only requires editing this file (plus its label in
  * `translations.ts`); the Products page filters pick it up automatically.
  */
-export type ProductGroupId = "snacks" | "kerupuk" | "lapis-legit";
+export type ProductGroupId = "snacks" | "kerupuk" | "lapis-legit" | "jam-topping";
 
 export type ProductGroup = {
   id: ProductGroupId;
@@ -48,6 +48,12 @@ export const productGroups: readonly ProductGroup[] = [
     labelKey: "group_lapis_legit",
     image: "/images/groups/lapis-legit.webp",
     categories: ["Lapis Legit"],
+  },
+  {
+    id: "jam-topping",
+    labelKey: "group_jam_topping",
+    image: "/images/groups/jam-topping.webp",
+    categories: ["Topping", "Jam"],
   },
 ];
 

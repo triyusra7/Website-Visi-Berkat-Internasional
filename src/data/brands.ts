@@ -114,9 +114,20 @@ export const brands: BrandInfo[] = [
     logoStyle: "wordmark",
     position: "Retail",
     description:
-      "Lapis legit in 365 g and 270 g packs, six flavours from original to durian, with a 24-month shelf life.",
+      "Lapis legit in 270 g and 365 g packs, seven flavours from original to durian, with a 24-month shelf life.",
     logo: "/images/logos/morisca-logo.webp",
     colorHex: "#8f1d21",
+  },
+  {
+    id: "Mariza",
+    slug: "mariza",
+    name: "Mariza",
+    logoStyle: "wordmark",
+    position: "Retail",
+    description:
+      "Jams and toppings from the Marizafoods family: squeeze-bottle toppings in 200 g and 350 g, plus single-serve portion packs.",
+    logo: "/images/logos/mariza-logo.webp",
+    colorHex: "#d0121b",
   },
 ];
 
